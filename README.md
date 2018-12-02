@@ -17,6 +17,7 @@ Como nuestro cliente tiene plena confianza en nuestras habilidades, nos encargó
 ## NOTAS: 
  
 A.	Si bien nuestro cliente nos pidió que hagamos la interfaz gráfica del juego, como se trata de una primera entrega, esta no precisa que sea extremadamente elaborada.
+
 B.	Debemos considerar que un jugador puede tener muchas partidas, pero cada partida solo tendrá 2 jugadores. 
  
 ## FECHA DE ENTREGA:  
