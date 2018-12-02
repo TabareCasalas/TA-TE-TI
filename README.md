@@ -14,12 +14,12 @@ Nuestro cliente quiere crear una página de juegos mundialmente famosos, pero no
  
 Como nuestro cliente tiene plena confianza en nuestras habilidades, nos encargó el desarrollo completo de este proyecto, lo que significa hacer una linda interfaz gráfica, y un backend que pueda soportarla. 
  
-NOTAS: 
+## NOTAS: 
  
-A.	Si bien nuestro cliente nos pidió que hagamos la interfaz gráfica del juego, como se trata de una primera entrega, esta no precisa que sea extremadamente           elaborada. 
+A.	Si bien nuestro cliente nos pidió que hagamos la interfaz gráfica del juego, como se trata de una primera entrega, esta no precisa que sea extremadamente           elaborada.
 B.	Debemos considerar que un jugador puede tener muchas partidas, pero cada partida solo tendrá 2 jugadores. 
  
-FECHA DE ENTREGA:  
+## FECHA DE ENTREGA:  
  
 La fecha de entrega FINAL de este proyecto es el miércoles 12/12.  
 
