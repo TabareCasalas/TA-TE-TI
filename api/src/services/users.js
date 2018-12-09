@@ -3,7 +3,7 @@ var User = require('../models/user').User;
 var ObjectID = require('mongodb').ObjectID;
 
 // [REQUIRED] Add new user, it function is triggered when game begin.
-router.post('/users', function(req, res) {
+router.post('/user', function(req, res) {
     var nuevo = new User(req.body);
     console.log(nuevo.nickname);
     nuevo.save().then(function(newUser) {
@@ -14,7 +14,7 @@ router.post('/users', function(req, res) {
 });
 
 // [REQUIRED] Update user by id, it function is triggered when game ends.
-app.put('/users/:id', function(req, res) { 
+router.put('/users/:id', function(req, res) { 
     User.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then(function(userUpdated) {
         res.send(userUpdated);
