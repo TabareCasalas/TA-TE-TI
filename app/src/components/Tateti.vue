@@ -1,32 +1,32 @@
 <template>
   <div>
     <div class="tablero">
+      <div class="casilla" v-on:click="check(0)">
+        <div v-bind:class="{circulo: circulo[0], cruz: cruz[0] }"></div>
+      </div>
       <div class="casilla" v-on:click="check(1)">
-        <div v-bind:class="{circulo: circulo1, cruz: cruz1 }"></div>
+        <div v-bind:class="{circulo: circulo[1], cruz: cruz[1] }"></div>
       </div>
       <div class="casilla" v-on:click="check(2)">
-        <div v-bind:class="{circulo: circulo2, cruz: cruz2 }"></div>
+        <div v-bind:class="{circulo: circulo[2], cruz: cruz[2] }"></div>
       </div>
       <div class="casilla" v-on:click="check(3)">
-        <div v-bind:class="{circulo: circulo3, cruz: cruz3 }"></div>
+        <div v-bind:class="{circulo: circulo[3], cruz: cruz[3] }"></div>
       </div>
       <div class="casilla" v-on:click="check(4)">
-        <div v-bind:class="{circulo: circulo4, cruz: cruz4 }"></div>
+        <div v-bind:class="{circulo: circulo[4], cruz: cruz[4] }"></div>
       </div>
       <div class="casilla" v-on:click="check(5)">
-        <div v-bind:class="{circulo: circulo5, cruz: cruz5 }"></div>
+        <div v-bind:class="{circulo: circulo[5], cruz: cruz[5] }"></div>
       </div>
       <div class="casilla" v-on:click="check(6)">
-        <div v-bind:class="{circulo: circulo6, cruz: cruz6 }"></div>
+        <div v-bind:class="{circulo: circulo[6], cruz: cruz[6] }"></div>
       </div>
       <div class="casilla" v-on:click="check(7)">
-        <div v-bind:class="{circulo: circulo7, cruz: cruz7 }"></div>
+        <div v-bind:class="{circulo: circulo[7], cruz: cruz[7] }"></div>
       </div>
       <div class="casilla" v-on:click="check(8)">
-        <div v-bind:class="{circulo: circulo8, cruz: cruz8 }"></div>
-      </div>
-      <div class="casilla" v-on:click="check(9)">
-        <div v-bind:class="{circulo: circulo9, cruz: cruz9 }"></div>
+        <div v-bind:class="{circulo: circulo[8], cruz: cruz[8] }"></div>
       </div>
     </div>
     <div>
@@ -43,24 +43,8 @@
 export default {
   data() {
     return {
-      circulo1: false,
-      circulo2: false,
-      circulo3: false,
-      circulo4: false,
-      circulo5: false,
-      circulo6: false,
-      circulo7: false,
-      circulo8: false,
-      circulo9: false,
-      cruz1: false,
-      cruz2: false,
-      cruz3: false,
-      cruz4: false,
-      cruz5: false,
-      cruz6: false,
-      cruz7: false,
-      cruz8: false,
-      cruz9: false,
+      circulo: [false, false, false, false, false, false, false, false, false],
+      cruz: [false, false, false, false, false, false, false, false, false],
 
       counter: 1,
       boardStatus: [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -71,176 +55,40 @@ export default {
   methods: {
     check(box) {
       if (this.gameOver != true) {
-        if (box == 1) {
-          if (this.counter % 2 != 0) {
-            this.cruz1 = true;
+        if (this.cruz[box] != true && this.circulo[box] != true)
+        if (this.counter % 2 != 0) {
+            this.cruz[box] = true;
+            this.$forceUpdate()
             this.counter++;
-            this.boardStatus[0] = 1;
+            this.boardStatus[box] = 1;
             this.gameStatus();
           } else {
-            this.circulo1 = true;
+            this.circulo[box] = true;
+            this.$forceUpdate()
             this.counter++;
-            this.boardStatus[0] = 2;
+            this.boardStatus[box] = 2;
             this.gameStatus();
           }
         }
-        if (box == 2) {
-          if (this.counter % 2 != 0) {
-            this.cruz2 = true;
-            this.counter++;
-            this.boardStatus[1] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo2 = true;
-            this.counter++;
-            this.boardStatus[1] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 3) {
-          if (this.counter % 2 != 0) {
-            this.cruz3 = true;
-            this.counter++;
-            this.boardStatus[2] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo3 = true;
-            this.counter++;
-            this.boardStatus[2] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 4) {
-          if (this.counter % 2 != 0) {
-            this.cruz4 = true;
-            this.counter++;
-            this.boardStatus[3] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo4 = true;
-            this.counter++;
-            this.boardStatus[3] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 5) {
-          if (this.counter % 2 != 0) {
-            this.cruz5 = true;
-            this.counter++;
-            this.boardStatus[4] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo5 = true;
-            this.counter++;
-            this.boardStatus[4] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 6) {
-          if (this.counter % 2 != 0) {
-            this.cruz6 = true;
-            this.counter++;
-            this.boardStatus[5] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo6 = true;
-            this.counter++;
-            this.boardStatus[5] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 7) {
-          if (this.counter % 2 != 0) {
-            this.cruz7 = true;
-            this.counter++;
-            this.boardStatus[6] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo7 = true;
-            this.counter++;
-            this.boardStatus[6] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 8) {
-          if (this.counter % 2 != 0) {
-            this.cruz8 = true;
-            this.counter++;
-            this.boardStatus[7] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo8 = true;
-            this.counter++;
-            this.boardStatus[7] = 2;
-            this.gameStatus();
-          }
-        }
-        if (box == 9) {
-          if (this.counter % 2 != 0) {
-            this.cruz9 = true;
-            this.counter++;
-            this.boardStatus[8] = 1;
-            this.gameStatus();
-          } else {
-            this.circulo9 = true;
-            this.counter++;
-            this.boardStatus[8] = 2;
-            this.gameStatus();
-          }
-        }
-      }
-    },
+      },
     gameStatus() {
       if (
-        (this.boardStatus[0] == 1 &&
-          this.boardStatus[1] == 1 &&
-          this.boardStatus[2] == 1) ||
-        (this.boardStatus[3] == 1 &&
-          this.boardStatus[4] == 1 &&
-          this.boardStatus[5] == 1) ||
-        (this.boardStatus[6] == 1 &&
-          this.boardStatus[7] == 1 &&
-          this.boardStatus[8] == 1) ||
-        (this.boardStatus[0] == 1 &&
-          this.boardStatus[3] == 1 &&
-          this.boardStatus[6] == 1) ||
-        (this.boardStatus[1] == 1 &&
-          this.boardStatus[4] == 1 &&
-          this.boardStatus[7] == 1) ||
-        (this.boardStatus[2] == 1 &&
-          this.boardStatus[5] == 1 &&
-          this.boardStatus[8] == 1) ||
-        (this.boardStatus[0] == 1 &&
-          this.boardStatus[4] == 1 &&
-          this.boardStatus[8] == 1) ||
-        (this.boardStatus[2] == 1 &&
-          this.boardStatus[4] == 1 &&
-          this.boardStatus[6] == 1) ||
-        (this.boardStatus[0] == 2 &&
-          this.boardStatus[1] == 2 &&
-          this.boardStatus[2] == 2) ||
-        (this.boardStatus[3] == 2 &&
-          this.boardStatus[4] == 2 &&
-          this.boardStatus[5] == 2) ||
-        (this.boardStatus[6] == 2 &&
-          this.boardStatus[7] == 2 &&
-          this.boardStatus[8] == 2) ||
-        (this.boardStatus[0] == 2 &&
-          this.boardStatus[3] == 2 &&
-          this.boardStatus[6] == 2) ||
-        (this.boardStatus[1] == 2 &&
-          this.boardStatus[4] == 2 &&
-          this.boardStatus[7] == 2) ||
-        (this.boardStatus[2] == 2 &&
-          this.boardStatus[5] == 2 &&
-          this.boardStatus[8] == 2) ||
-        (this.boardStatus[0] == 2 &&
-          this.boardStatus[4] == 2 &&
-          this.boardStatus[8] == 2) ||
-        (this.boardStatus[2] == 2 &&
-          this.boardStatus[4] == 2 &&
-          this.boardStatus[6] == 2)
-      ) {
+        (this.boardStatus[0] == 1 && this.boardStatus[1] == 1 && this.boardStatus[2] == 1) ||
+        (this.boardStatus[3] == 1 && this.boardStatus[4] == 1 && this.boardStatus[5] == 1) ||
+        (this.boardStatus[6] == 1 && this.boardStatus[7] == 1 && this.boardStatus[8] == 1) ||
+        (this.boardStatus[0] == 1 && this.boardStatus[3] == 1 && this.boardStatus[6] == 1) ||
+        (this.boardStatus[1] == 1 && this.boardStatus[4] == 1 && this.boardStatus[7] == 1) ||
+        (this.boardStatus[2] == 1 && this.boardStatus[5] == 1 && this.boardStatus[8] == 1) ||
+        (this.boardStatus[0] == 1 && this.boardStatus[4] == 1 && this.boardStatus[8] == 1) ||
+        (this.boardStatus[2] == 1 && this.boardStatus[4] == 1 && this.boardStatus[6] == 1) ||
+        (this.boardStatus[0] == 2 && this.boardStatus[1] == 2 && this.boardStatus[2] == 2) ||
+        (this.boardStatus[3] == 2 && this.boardStatus[4] == 2 && this.boardStatus[5] == 2) ||
+        (this.boardStatus[6] == 2 && this.boardStatus[7] == 2 && this.boardStatus[8] == 2) ||
+        (this.boardStatus[0] == 2 && this.boardStatus[3] == 2 && this.boardStatus[6] == 2) ||
+        (this.boardStatus[1] == 2 && this.boardStatus[4] == 2 && this.boardStatus[7] == 2) ||
+        (this.boardStatus[2] == 2 && this.boardStatus[5] == 2 && this.boardStatus[8] == 2) ||
+        (this.boardStatus[0] == 2 && this.boardStatus[4] == 2 && this.boardStatus[8] == 2) ||
+        (this.boardStatus[2] == 2 && this.boardStatus[4] == 2 && this.boardStatus[6] == 2)) {
         this.gameOver = true;
         if (this.counter % 2 == 0) {
           this.winer = "player 1 has won";
@@ -250,7 +98,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
