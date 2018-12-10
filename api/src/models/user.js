@@ -7,13 +7,16 @@ var UserSchema = new mongoose.Schema({
         unique: true
     },
     wins: {
-        type: Number
+        type: Number,
+        default: 0
     },
     draws: {
-        type: Number
+        type: Number,
+        default: 0
     },
     losses: {
-        type: Number
+        type: Number,
+        default: 0
     }
 });
 

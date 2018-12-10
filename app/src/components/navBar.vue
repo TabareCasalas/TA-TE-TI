@@ -2,9 +2,9 @@
   <div>
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <router-link class="navbar-item" :to="{ name: 'index' }">
           <img src="..\assets\Jogo_da_velha_-_tic_tac_toe.png" width="" height="200">
-        </a>
+        </router-link>
         
         <a
           role="button"
@@ -21,9 +21,9 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="/">Home</a>
+          <router-link class="navbar-item" :to="{ name: 'index' }">Home</router-link>
           
-          <a class="navbar-item" href="/Leaderboard">Leaderboard</a>
+          <router-link class="navbar-item" :to="{ name: 'leaderboard' }">Leaderboard</router-link>
 
           
         </div>
