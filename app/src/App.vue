@@ -1,23 +1,7 @@
 <template>
   <div id="app">
     <navBar />
-    <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <player msg="Player 1"/>
-          
-        </div>
-        <div class="column">
-          <tateti/>
-        </div>
-        <div class="column">
-          <player msg="Player 2"/>
-        </div>
-      </div>
-    </div>  
-    </section> 
-
+    <router-view/>
   </div>
 </template>
 
