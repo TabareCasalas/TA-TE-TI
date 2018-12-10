@@ -34,7 +34,7 @@
     </div>
     <div v-if="this.winer != null">
       <a class="button is-info" href="/">Play Again</a><br><br>
-      <a class="button is-info" href="/Leaderboard">Leaderboard</a>
+      <router-link class="button is-info" :to="{ name: 'leaderboard' }">Leaderboard</router-link>
     </div>
   </div>
 </template>
