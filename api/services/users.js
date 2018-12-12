@@ -2,7 +2,7 @@ var router = require('express').Router();
 var User = require('../models/user').User;
 var ObjectID = require('mongodb').ObjectID;
 
-// [REQUIRED] Add new user, it function is triggered when game begin.
+// [REQUIRED] Add new user, triggered when game begin.
 router.post('/users', function(req, res) {
     var nuevo = new User(req.body);
     console.log(nuevo.nickname);
@@ -13,8 +13,8 @@ router.post('/users', function(req, res) {
     });
 });
 
-// [REQUIRED] Update user by id, it function is triggered when game ends.
-app.put('/users/:id', function(req, res) { 
+// [REQUIRED] Update user by id,triggered when game ends.
+router.put('/users/:id', function(req, res) { 
     User.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then(function(userUpdated) {
         res.send(userUpdated);
